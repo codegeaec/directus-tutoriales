@@ -1,0 +1,59 @@
+# Entorno de los tutoriales de Directus (parte 6).
+# Directus en http://localhost:8056 · Mailpit (bandeja de prueba) en http://localhost:8026
+# Puertos distintos a los habituales para no chocar con otros proyectos.
+services:
+  database:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: directus
+      POSTGRES_PASSWORD: directus
+      POSTGRES_DB: directus
+    volumes:
+      - db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "directus"]
+      interval: 5s
+      retries: 10
+
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "8026:8025" # interfaz web
+      - "1026:1025" # SMTP (solo si quieres probar desde tu máquina)
+
+  directus:
+    image: directus/directus:12.5.1
+    ports:
+      - "8056:8055"
+    depends_on:
+      database:
+        condition: service_healthy
+      mailpit:
+        condition: service_started
+    volumes:
+      - uploads:/directus/uploads
+      - ./templates:/directus/templates # plantillas .liquid propias
+    environment:
+      SECRET: "tutorial-directus-cambiar-en-produccion"
+      PUBLIC_URL: "http://localhost:8056"
+      ADMIN_EMAIL: "admin@example.com"
+      ADMIN_PASSWORD: "directus"
+      DB_CLIENT: "pg"
+      DB_HOST: "database"
+      DB_PORT: "5432"
+      DB_DATABASE: "directus"
+      DB_USER: "directus"
+      DB_PASSWORD: "directus"
+
+      # --- Correo: SMTP hacia Mailpit (dentro de la red de Docker) ---
+      EMAIL_TRANSPORT: "smtp"
+      EMAIL_FROM: "no-reply@codegea.test"
+      EMAIL_SMTP_HOST: "mailpit"
+      EMAIL_SMTP_PORT: "1025"
+      EMAIL_SMTP_SECURE: "false"
+      EMAIL_SMTP_IGNORE_TLS: "true"
+      EMAIL_TEMPLATES_PATH: "./templates"
+
+volumes:
+  db:
+  uploads:

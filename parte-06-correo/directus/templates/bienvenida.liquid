@@ -1,0 +1,15 @@
+{% layout "codegea-base" %}
+
+{% block header %}¡Bienvenido, {{ nombre }}!{% endblock %}
+
+{% block content %}
+  <p>Gracias por registrarte. Tus próximos pasos:</p>
+  <ul>
+    {% for item in items %}
+      <li>{{ item }}</li>
+    {% endfor %}
+  </ul>
+  <a class="btn" href="{{ boton_url }}">
+    {{ boton_texto | default: "Empezar" }}
+  </a>
+{% endblock %}
