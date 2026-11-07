@@ -1,0 +1,27 @@
+/* Estilos mínimos: una tarjeta centrada */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #eef1f7;
+  color: #0b0f1a;
+  font-family: system-ui, sans-serif;
+}
+main, form {
+  width: 420px;
+  display: grid;
+  gap: 14px;
+  padding: 36px;
+  background: #fff;
+  border: 1px solid #cfd5e2;
+  border-radius: 8px;
+}
+h1 { margin: 0 0 8px; font-size: 28px; }
+input, button { font: inherit; padding: 12px 14px; border-radius: 8px; }
+input { border: 1px solid #cfd5e2; }
+button { border: 0; background: #1e3faa; color: #fff; cursor: pointer; }
+button:disabled { opacity: 0.6; }
+a { color: #1e3faa; }
+ul { margin: 0; padding-left: 20px; line-height: 1.8; }
+main form { width: auto; padding: 0; border: 0; }

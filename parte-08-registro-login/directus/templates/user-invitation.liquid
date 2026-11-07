@@ -1,0 +1,10 @@
+{% layout "codegea-base" %}
+
+{% block header %}Te invitaron a {{ projectName }}{% endblock %}
+
+{% block content %}
+  <p>Alguien de tu equipo te invitó a
+     trabajar en {{ projectName }}.</p>
+  <p>Acepta la invitación y elige tu contraseña:</p>
+  <a class="btn" href="{{ url }}">Aceptar la invitación</a>
+{% endblock %}

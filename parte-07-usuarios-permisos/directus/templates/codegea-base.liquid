@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>{{ projectName }}</title>
+  <style>
+    body { margin: 0; background: #eef1f7; font-family: Arial, sans-serif; color: #525a6b; }
+    .card { max-width: 600px; margin: 32px auto; background: #fff; border: 1px solid #cfd5e2; border-radius: 8px; }
+    .head { background: #0b0f1a; color: #fff; padding: 24px 32px; font-size: 20px; font-weight: bold; }
+    .body { padding: 32px; font-size: 16px; line-height: 1.55; }
+    .foot { padding: 20px 32px; border-top: 1px solid #cfd5e2; font-size: 13px; }
+    .btn { display: inline-block; background: #1e3faa; color: #fff; padding: 12px 24px; border-radius: 99px; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="head">{% block header %}{{ projectName }}{% endblock %}</div>
+    <div class="body">{% block content %}{% endblock %}</div>
+    <div class="foot">{% block footer %}Enviado por {{ projectName }} · {{ projectUrl }}{% endblock %}</div>
+  </div>
+</body>
+</html>

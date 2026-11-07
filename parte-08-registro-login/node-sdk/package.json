@@ -1,0 +1,8 @@
+{
+  "name": "demo-web",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@directus/sdk": "27.0.0"
+  }
+}

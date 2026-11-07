@@ -8,6 +8,8 @@ Cada carpeta corresponde a un video y funciona sola. Todo está probado con **Di
 | Parte | Video | Carpetas |
 |---|---|---|
 | 6 | [Correo: SMTP, Mailpit y plantillas propias](parte-06-correo) | `directus/` |
+| 7 | [Usuarios, roles y permisos](parte-07-usuarios-permisos) | `directus/` |
+| 8 | [Registro público y login con el SDK y Next.js](parte-08-registro-login) | `directus/`, `node-sdk/`, `frontend/` |
 
 ## Cómo se usa
 
@@ -27,4 +29,4 @@ Las partes 1 a 5 se grabaron con Directus 11 y no tienen código aparte. Las sig
 
 ## Licencia
 
-Código bajo licencia MIT (ver `LICENSE`). Directus y Mailpit son marcas de sus dueños.
+Código bajo licencia MIT (ver `LICENSE`). Directus, Next.js y Mailpit son marcas de sus dueños.
